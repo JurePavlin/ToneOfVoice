@@ -1,0 +1,93 @@
+Volt Bank (EU Fintech Neobank)
+Snapshot: Clear, pragmatic, lightly formal, EU spellings, transparent on risk/fees. Address form: “you”. Emojis: none.
+
+Web hero: “Move money across borders without the mystery. Real exchange rates, upfront fees, and transfers that usually land the same day in the EEA.”
+App UI / error: “We couldn’t verify your document. Please upload a clear photo of the front and back. Your data is encrypted in transit and at rest.”
+Email / onboarding: “Welcome to Volt. To activate your account, confirm your identity and set your spending controls. It takes about 3 minutes.”
+Push / card security: “A €1.00 test charge was declined because your card is locked for online payments. Unlock in Settings → Card Controls.”
+FAQ: “Is my money protected? Customer deposits are safeguarded in ring-fenced accounts with our EU partner banks. Volt does not re-lend deposits.”
+Pricing page: “International transfer: €0.35 + 0.35%. Domestic SEPA transfer: €0.00. We never add hidden FX markups.”
+Legal / disclaimer: “Volt Payments UAB is authorised and supervised by the Bank of Lithuania. Investing involves risk; capital may be at risk.”
+
+"task_description": "Rewrite the landing hero to be clear, EU-spelled, and transparent on fees and FX. No hype, no emojis, plain 'you'.",
+  "draft_text": "We’re reinventing money for everyone! Zero fees forever!! Send cash worldwide in seconds, no strings attached.",
+  "audience": "Prospective EU retail banking users",
+  "channel": "web_hero",
+  "word_count_range": "30-45"
+  
+ "task_description": "Tight onboarding email: state next steps, time to complete, and data handling. Avoid slang; EU spellings.",
+  "draft_text": "Hey there! Let’s get you rolling—tap that big green button and we’ll sort you out super quick 😉",
+  "audience": "Newly registered user",
+  "channel": "email_onboarding",
+  "word_count_range": "80-110"
+  
+   "task_description": "Security push about a declined test charge; include amount with € and the exact settings path.",
+  "draft_text": "Heads up: we blocked something weird. Maybe your card is broken? Check your stuff.",
+  "audience": "Active cardholder in EEA",
+  "channel": "push_notification",
+  "word_count_range": "18-28"
+  
+  "task_description": "FAQ entry about deposit protection; be precise and non-promissory. Reference safeguarding, not lending.",
+  "draft_text": "Your money is totally safe, guaranteed by us. We keep it in a special place and never ever touch it.",
+  "audience": "Prospective/current customers",
+  "channel": "faq_article",
+  "word_count_range": "70-100"
+=============================================================================================================================================
+
+Hexforge Cloud (Developer Tools & Infra)
+Snapshot: Technical, direct, confident, mildly friendly. Uses “we/you”, concrete metrics, short sentences. Emojis: sparingly (rare).
+
+Web hero: “Spin up GPU jobs in 12 seconds. Pay by the minute. Zero lock-in: standard containers, your registry.”
+Docs / quickstart: “Install the CLI: curl -sSL get.hexforge.sh | bash. Authenticate with hex login. Deploy with hex run -f gpu.yaml.”
+Release notes: “v1.8: Added SpotReplica policy. Average cold start time reduced from 1.1s → 0.7s. Improved Python runtime with uv caching.”
+Email / incident RC: “On 2025-09-14 13:22 UTC, jobs in eu-central experienced elevated queue times (p95 +48s) due to a scheduler regression. We rolled back and added a canary gate.”
+UI / empty state: “No runs yet. Create a hex.yml in your repo and push. We’ll pick it up and build automatically.”
+Pricing FAQ: “What happens if I exceed credits? We pause queued jobs and email owners. No surprise overages.”
+Support chat: “Could you share the failing job ID? We’ll replay it with verbose logs and send you the trace.”
+
+"task_description": "Release note: crisp, metric-led, skimmable. Mention version, latency improvements, and a new policy.",
+  "draft_text": "New update drops today!! Things are faster and better. We changed a bunch of stuff under the hood.",
+  "audience": "Developers scanning changelog",
+  "channel": "release_notes",
+  "word_count_range": "50-80"
+  
+  "task_description": "Incident RC email: include UTC timestamp, scope, impact (p95), cause, fix, and prevention.",
+  "draft_text": "Earlier today some jobs were slow because something broke. It’s fine now. Sorry for the hassle!",
+  "audience": "Workspace admins",
+  "channel": "email_postmortem",
+  "word_count_range": "110-150"
+  
+  "task_description": "Quickstart doc: show exact CLI commands and one minimal deploy example. No fluff.",
+  "draft_text": "Getting started is easy—just use our amazing CLI and push your thing!",
+  "audience": "First-time CLI users",
+  "channel": "docs_quickstart",
+  "word_count_range": "90-130"
+=============================================================================================================================================
+
+Maison Céleste (Luxury Skincare)
+Snapshot: Refined, minimal, sensory but restrained; formal third-person; avoids slang/emojis; British English.
+
+Web hero: “Clinically proven care for sensitive skin. Seven ingredients, no fragrance. Results measured in days, not promises.”
+Product page: “The Restorative Serum supports barrier repair with ceramides and niacinamide at efficacious levels. Dermatologist tested.”
+Packaging copy: “Apply two drops to clean skin, morning and evening. Allow to absorb fully before moisturiser.”
+Email / post-purchase: “We hope the Serum has arrived safely. A brief guide is enclosed. Should you have questions, our aestheticians are available.”
+FAQ: “Is it suitable during pregnancy? The formula is gentle and free from retinoids. We recommend consulting your healthcare provider.”
+Editorial: “True luxury is restraint. Maison Céleste formulates without noise—only what the skin recognises.”
+
+"task_description": "Product description with British English; formal third-person; only evidence-based claims.",
+  "draft_text": "This serum is literally magic and will transform your skin overnight!!!",
+  "audience": "Skincare shoppers with sensitivity concerns",
+  "channel": "product_page",
+  "word_count_range": "60-90"
+  
+   "task_description": "Usage instructions: restrained, precise, no emoji, no slang.",
+  "draft_text": "Slap it on whenever you feel like it—go nuts!",
+  "audience": "New customers",
+  "channel": "instruction_label",
+  "word_count_range": "25-35"
+  
+   "task_description": "Post-purchase email: courteous, minimal, offers assistance; British spelling.",
+  "draft_text": "Thanks for buying! Ping us if anything’s weird :)",
+  "audience": "Recent purchasers",
+  "channel": "email_post_purchase",
+  "word_count_range": "70-100"

@@ -1,0 +1,55 @@
+<!doctype html><html><head><meta charset="utf-8"><title>ToV Preview</title>
+<style>body{font:14px system-ui;margin:24px;max-width:900px} textarea{width:100%;height:120px}</style></head>
+<body>
+<h1>ToV Preview</h1>
+<section>
+  <h3>Analyze</h3>
+  <textarea id="corpus" placeholder="One snippet per line"></textarea>
+  <input id="brand" placeholder="Brand (e.g., Volt Bank)" />
+  <button onclick="analyze()">Analyze</button>
+  <pre id="sig" style="white-space:pre-wrap"></pre>
+</section>
+<section>
+  <h3>Optimize</h3>
+  <textarea id="draft" placeholder="Paste draft text"></textarea>
+  <input id="task" placeholder="Task description" />
+  <input id="aud" placeholder="Audience" />
+  <input id="chan" placeholder="Channel" />
+  <input id="wcr" placeholder="Word count range (e.g., 60-100)" value="60-100"/>
+  <button onclick="optimize()">Optimize</button>
+  <pre id="opt" style="white-space:pre-wrap"></pre>
+</section>
+<section>
+  <h3>Score</h3>
+  <button onclick="score()">Score optimized → signature</button>
+  <pre id="score" style="white-space:pre-wrap"></pre>
+</section>
+<script>
+let signature = null;
+async function analyze(){
+  const corpus = document.getElementById('corpus').value.split('\n').filter(Boolean);
+  const brand = document.getElementById('brand').value || "UnknownBrand";
+  const res = await fetch('/api/analyze',{method:'POST',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({corpus, brand})});
+  const j = await res.json(); signature = j.signature;
+  document.getElementById('sig').textContent = JSON.stringify(j.signature,null,2);
+}
+async function optimize(){
+  const draft = document.getElementById('draft').value;
+  const task = document.getElementById('task').value;
+  const audience = document.getElementById('aud').value;
+  const channel = document.getElementById('chan').value;
+  const wcr = document.getElementById('wcr').value || "60-100";
+  const res = await fetch('/api/optimize',{method:'POST',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({draft, signature, task, audience, channel, word_count_range:wcr})});
+  const j = await res.json();
+  document.getElementById('opt').textContent = JSON.stringify(j,null,2);
+}
+async function score(){
+  const improved = JSON.parse(document.getElementById('opt').textContent||'{}').improved_text || '';
+  const res = await fetch('/api/score',{method:'POST',headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({text: improved, signature})});
+  const j = await res.json();
+  document.getElementById('score').textContent = JSON.stringify(j,null,2);
+}
+</script></body></html>

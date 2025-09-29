@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+langdetect
+textstat
+scikit-learn
+sentence-transformers
+openai
+spaCy
