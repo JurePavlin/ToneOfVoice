@@ -2,7 +2,6 @@
 import os, re, statistics
 from typing import Any, Dict, List, Tuple
 
-# --- optional deps; fail-soft ---
 try:
     from langdetect import detect
 except Exception:
