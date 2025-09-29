@@ -45,10 +45,7 @@ class ScoreOut(BaseModel):
 
 @app.post("/analyze", response_model=AnalyzeOut)
 def route_analyze(payload: AnalyzeIn) -> AnalyzeOut:
-    # analyze_corpus now accepts either string or list
     out = analyze_corpus(payload.corpus, lang_hint=payload.lang, brand=payload.brand)
-    # Validate the signature against the schema shape lightly (optional)
-    # We avoid strict pydantic here to allow schema evolution.
     return AnalyzeOut(metrics=out["metrics"], examples=out["examples"], signature=out["signature"])
 
 @app.post("/optimize", response_model=OptimizeOut)

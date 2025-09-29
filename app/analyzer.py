@@ -29,12 +29,11 @@ except Exception:
 from .providers.openai_provider import synthesize_signature
 from .tov_signature import JSON_SCHEMA
 
-USE_SPACY = os.getenv("TOV_USE_SPACY", "1") == "1"
 _nlp = None
 
 def _get_nlp():
     global _nlp
-    if not USE_SPACY or spacy is None:
+    if  spacy is None:
         return None
     if _nlp is None:
         try:
@@ -145,14 +144,8 @@ def analyze_corpus(corpus, lang_hint: str | None = None, brand: str = "UnknownBr
         "json_schema": JSON_SCHEMA,
     }
 
-    # --- choose representative examples: shortest per cluster ---
-    cluster_to_examples = []
-    for i, s in enumerate(sents[:500]):
-        cluster_to_examples.append((labels[i % len(labels)] if labels else 0, len(s), s))
-    cluster_to_examples.sort(key=lambda x: (x[0], x[1]))
-    examples = [e[2] for e in cluster_to_examples[:8]] if cluster_to_examples else corpus[:4]
 
     # --- LLM synthesis of the signature (no hard-coded values here) ---
-    signature = synthesize_signature(metrics, examples, brand, [top_lang])
+    signature = synthesize_signature(metrics, corpus, brand, [top_lang])
 
-    return {"metrics": metrics, "examples": examples, "signature": signature}
+    return {"metrics": metrics, "examples": corpus, "signature": signature}
